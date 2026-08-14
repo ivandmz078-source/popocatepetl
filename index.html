@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pregunta importante 👀</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Música de YouTube -->
+    <div class="youtube-player">
+        <iframe
+            id="youtubeAudio"
+            src="https://www.youtube.com/embed/JhiguT3ZRY0?autoplay=0&loop=1&playlist=JhiguT3ZRY0"
+            title="Música"
+            allow="autoplay; encrypted-media"
+            frameborder="0">
+        </iframe>
+    </div>
+
+    <!-- Pantalla inicial -->
+    <main id="pantallaInicial" class="pantalla">
+
+        <div class="tarjeta">
+
+            <div class="emoji">⚖️</div>
+
+            <h1>Una pregunta importante...</h1>
+
+            <p class="pregunta">
+                ¿Cuánto pesas, Monse?
+            </p>
+
+            <p class="subtexto">
+                Prometo que no voy a juzgar 👀
+            </p>
+
+            <input
+                type="number"
+                id="peso"
+                placeholder="Escribe tu peso"
+                min="1"
+                required
+            >
+
+            <button id="boton">
+                Continuar
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- Pantalla de resultado -->
+    <main id="pantallaResultado" class="pantalla resultado oculto">
+
+        <div class="resultado-contenido">
+
+            <h2 id="mensaje">
+                Analizando...
+            </h2>
+
+            <div class="imagen-container">
+
+                <img
+                    id="imagenBroma"
+                    src="https://us.123rf.com/450wm/allismagic/allismagic1711/allismagic171100098/90791178-fat-woman-with-restriction-sign-overweight-woman-vector-illustration.jpg"
+                    alt="Imagen de la broma"
+                >
+
+            </div>
+
+            <p class="texto-final">
+                💀 JAJAJAJAJAJA
+            </p>
+
+            <button id="volver">
+                Volver a intentarlo
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
