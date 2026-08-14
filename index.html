@@ -4,88 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pregunta importante 👀</title>
+    <title>Calculadora de peso</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Música de YouTube -->
-    <div class="youtube-player">
-        <iframe
-            id="youtubeAudio"
-            src="https://www.youtube.com/embed/JhiguT3ZRY0?autoplay=0&loop=1&playlist=JhiguT3ZRY0"
-            title="Música"
-            allow="autoplay; encrypted-media"
-            frameborder="0">
-        </iframe>
+    <!-- Fondo decorativo -->
+    <div class="background">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
     </div>
 
     <!-- Pantalla inicial -->
-    <main id="pantallaInicial" class="pantalla">
+    <main class="container" id="questionScreen">
 
-        <div class="tarjeta">
+        <div class="card">
 
             <div class="emoji">⚖️</div>
 
-            <h1>Una pregunta importante...</h1>
+            <p class="small-text">CALCULADORA PERSONAL</p>
 
-            <p class="pregunta">
-                ¿Cuánto pesas, Monse?
+            <h1>
+                ¿Cuánto pesas,<br>
+                <span>Monse?</span>
+            </h1>
+
+            <p class="description">
+                Introduce tu peso para continuar.
             </p>
 
-            <p class="subtexto">
-                Prometo que no voy a juzgar 👀
-            </p>
-
-            <input
-                type="number"
-                id="peso"
-                placeholder="Escribe tu peso"
-                min="1"
-                required
-            >
-
-            <button id="boton">
-                Continuar
-            </button>
-
-        </div>
-
-    </main>
-
-
-    <!-- Pantalla de resultado -->
-    <main id="pantallaResultado" class="pantalla resultado oculto">
-
-        <div class="resultado-contenido">
-
-            <h2 id="mensaje">
-                Analizando...
-            </h2>
-
-            <div class="imagen-container">
-
-                <img
-                    id="imagenBroma"
-                    src="https://us.123rf.com/450wm/allismagic/allismagic1711/allismagic171100098/90791178-fat-woman-with-restriction-sign-overweight-woman-vector-illustration.jpg"
-                    alt="Imagen de la broma"
+            <div class="input-container">
+                <input
+                    type="number"
+                    id="weightInput"
+                    placeholder="00"
+                    min="1"
+                    max="500"
                 >
 
+                <span>kg</span>
             </div>
 
-            <p class="texto-final">
-                💀 JAJAJAJAJAJA
+            <button id="continueButton">
+                CONTINUAR
+                <span>→</span>
+            </button>
+
+            <p class="warning">
+                * Los resultados pueden ser inesperados.
             </p>
 
-            <button id="volver">
-                Volver a intentarlo
+        </div>
+
+    </main>
+
+
+    <!-- Pantalla del resultado -->
+    <main class="result-screen" id="resultScreen">
+
+        <div class="result-content">
+
+            <p class="result-small">
+                RESULTADO CALCULADO
+            </p>
+
+            <h2>
+                MONSE...
+            </h2>
+
+            <div class="image-container">
+                <img
+                    id="prankImage"
+                    src="https://us.123rf.com/450wm/allismagic/allismagic1711/allismagic171100098/90791178-fat-woman-with-restriction-sign-overweight-woman-vector-illustration.jpg"
+                    alt="Resultado"
+                >
+            </div>
+
+            <h3>
+                💀
+            </h3>
+
+            <p class="result-text">
+                Creo que la calculadora<br>
+                necesita una actualización.
+            </p>
+
+            <button class="again-button" id="againButton">
+                CALCULAR OTRA VEZ
             </button>
 
         </div>
 
     </main>
+
+
+    <!-- YouTube oculto -->
+    <div class="music-player">
+
+        <iframe
+            id="youtubePlayer"
+            src="https://www.youtube.com/embed/JhiguT3ZRY0?enablejsapi=1&loop=1&playlist=JhiguT3ZRY0"
+            title="Music"
+            allow="autoplay"
+        >
+        </iframe>
+
+    </div>
 
 
     <script src="script.js"></script>
