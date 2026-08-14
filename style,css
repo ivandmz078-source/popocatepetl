@@ -7,37 +7,66 @@
 body {
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-
-    background:
-        radial-gradient(circle at top, #ff9acb 0%, transparent 35%),
-        linear-gradient(135deg, #18001f, #4b003f, #120019);
-
+    background: #070707;
     color: white;
-
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 
-/* -------------------------
-   PANTALLAS
-------------------------- */
+/* =========================
+   FONDO
+========================= */
 
-.pantalla {
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, #292929 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #1b1b1b 0%, transparent 30%),
+        #070707;
+    z-index: -2;
+}
+
+.glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.25;
+}
+
+.glow-1 {
+    background: #ffffff;
+    top: -150px;
+    left: -100px;
+}
+
+.glow-2 {
+    background: #555555;
+    bottom: -150px;
+    right: -100px;
+}
+
+
+/* =========================
+   PANTALLA PRINCIPAL
+========================= */
+
+.container {
+    width: 100%;
     min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 25px;
+    padding: 20px;
+
+    animation: fadeIn 0.8s ease;
 }
 
-
-/* -------------------------
-   TARJETA PRINCIPAL
-------------------------- */
-
-.tarjeta {
+.card {
     width: 100%;
     max-width: 450px;
 
@@ -45,161 +74,215 @@ body {
 
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.10);
+    background: rgba(20, 20, 20, 0.82);
 
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
-    border-radius: 25px;
-
-    backdrop-filter: blur(15px);
+    border-radius: 28px;
 
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.5);
+        0 30px 80px rgba(0, 0, 0, 0.7),
+        inset 0 1px rgba(255, 255, 255, 0.05);
 
-    animation: aparecer 0.8s ease;
+    backdrop-filter: blur(20px);
 }
-
 
 .emoji {
-    font-size: 60px;
+    font-size: 42px;
     margin-bottom: 20px;
-
-    animation: flotando 2s ease-in-out infinite;
 }
 
+.small-text {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #888;
+    margin-bottom: 15px;
+}
 
 h1 {
-    font-size: 30px;
-    margin-bottom: 25px;
+    font-size: clamp(35px, 8vw, 55px);
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+h1 span {
+    color: #ff4b4b;
+}
+
+.description {
+    color: #888;
+    margin-top: 20px;
+    font-size: 14px;
 }
 
 
-.pregunta {
-    font-size: 26px;
-    font-weight: bold;
-
-    margin-bottom: 10px;
-
-    color: #ffb7df;
-}
-
-
-.subtexto {
-    color: #ddd;
-
-    margin-bottom: 25px;
-}
-
-
-/* -------------------------
+/* =========================
    INPUT
-------------------------- */
+========================= */
 
-input {
+.input-container {
+    display: flex;
+    align-items: center;
+
+    margin-top: 30px;
+
+    padding: 0 20px;
+
+    height: 65px;
+
+    background: #0c0c0c;
+
+    border: 1px solid #292929;
+
+    border-radius: 16px;
+
+    transition: 0.3s;
+}
+
+.input-container:focus-within {
+    border-color: #666;
+
+    box-shadow:
+        0 0 0 4px rgba(255,255,255,0.03);
+}
+
+.input-container input {
     width: 100%;
 
-    padding: 15px;
-
+    background: transparent;
     border: none;
-    border-radius: 12px;
-
     outline: none;
-
-    font-size: 18px;
-
-    text-align: center;
-
-    margin-bottom: 15px;
-
-    background: rgba(255, 255, 255, 0.95);
-}
-
-
-input:focus {
-    box-shadow: 0 0 0 3px #ff55b5;
-}
-
-
-/* -------------------------
-   BOTONES
-------------------------- */
-
-button {
-    width: 100%;
-
-    padding: 15px;
-
-    border: none;
-    border-radius: 12px;
-
-    font-size: 18px;
-    font-weight: bold;
 
     color: white;
 
-    cursor: pointer;
+    font-size: 28px;
+    font-weight: 700;
 
-    background: linear-gradient(
-        135deg,
-        #ff2f9f,
-        #9c27ff
-    );
-
-    transition: 0.25s;
-
-    box-shadow:
-        0 8px 25px rgba(255, 47, 159, 0.35);
+    text-align: center;
 }
 
+.input-container input::placeholder {
+    color: #333;
+}
+
+.input-container span {
+    color: #666;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+button {
+    width: 100%;
+    height: 60px;
+
+    margin-top: 18px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: white;
+    color: black;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+button span {
+    margin-left: 8px;
+    font-size: 18px;
+}
 
 button:hover {
     transform: translateY(-3px);
 
     box-shadow:
-        0 12px 35px rgba(255, 47, 159, 0.55);
+        0 12px 30px rgba(255,255,255,0.12);
 }
-
 
 button:active {
     transform: scale(0.97);
 }
 
+.warning {
+    margin-top: 20px;
+    font-size: 10px;
+    color: #555;
+}
 
-/* -------------------------
+
+/* =========================
    RESULTADO
-------------------------- */
+========================= */
 
-.resultado {
+.result-screen {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(circle at center, #242424 0%, #050505 65%);
+
+    animation: fadeIn 0.7s ease;
+}
+
+.result-content {
     text-align: center;
-}
 
-
-.resultado-contenido {
+    max-width: 500px;
     width: 100%;
-    max-width: 600px;
+}
 
-    animation: aparecer 0.7s ease;
+.result-small {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #777;
+
+    margin-bottom: 10px;
+}
+
+.result-content h2 {
+    font-size: clamp(45px, 12vw, 85px);
+    font-weight: 900;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        0 10px 40px rgba(0,0,0,0.8);
 }
 
 
-.resultado h2 {
-    font-size: 34px;
-
-    margin-bottom: 30px;
-
-    color: #ffb7df;
-}
-
-
-/* -------------------------
+/* =========================
    IMAGEN GIRATORIA
-------------------------- */
+========================= */
 
-.imagen-container {
-    width: 330px;
-    height: 330px;
+.image-container {
+    width: min(330px, 80vw);
+    height: min(330px, 80vw);
 
-    margin: 0 auto 25px;
+    margin: 10px auto;
 
     display: flex;
     justify-content: center;
@@ -208,8 +291,7 @@ button:active {
     perspective: 1000px;
 }
 
-
-.imagen-container img {
+.image-container img {
     width: 100%;
     height: 100%;
 
@@ -217,103 +299,74 @@ button:active {
 
     border-radius: 20px;
 
+    animation:
+        rotate360 2.8s linear infinite,
+        floating 2s ease-in-out infinite;
+
     filter:
-        drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
+        drop-shadow(0 25px 30px rgba(0,0,0,0.7));
+}
 
-    animation: girar360 2.5s linear infinite;
+.result-content h3 {
+    font-size: 35px;
+
+    margin-top: 5px;
+}
+
+.result-text {
+    color: #999;
+
+    line-height: 1.5;
+
+    margin-top: 8px;
+}
+
+.again-button {
+    max-width: 260px;
+
+    margin-top: 20px;
+
+    height: 50px;
+
+    background: #171717;
+    color: white;
+
+    border: 1px solid #333;
+}
+
+.again-button:hover {
+    background: #222;
 }
 
 
-/* -------------------------
-   TEXTO FINAL
-------------------------- */
-
-.texto-final {
-    font-size: 32px;
-    font-weight: bold;
-
-    margin-bottom: 25px;
-
-    animation: temblar 0.15s infinite;
-}
-
-
-/* -------------------------
+/* =========================
    YOUTUBE
-------------------------- */
+========================= */
 
-.youtube-player {
+.music-player {
     position: fixed;
 
-    bottom: 15px;
-    right: 15px;
+    width: 1px;
+    height: 1px;
 
-    width: 220px;
-    height: 125px;
+    left: -100px;
+    top: -100px;
 
-    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+}
 
-    opacity: 0.35;
-
-    transition: 0.3s;
+.music-player iframe {
+    width: 1px;
+    height: 1px;
 }
 
 
-.youtube-player:hover {
-    opacity: 1;
-}
-
-
-.youtube-player iframe {
-    width: 100%;
-    height: 100%;
-
-    border-radius: 12px;
-}
-
-
-/* -------------------------
-   OCULTAR
-------------------------- */
-
-.oculto {
-    display: none;
-}
-
-
-/* -------------------------
+/* =========================
    ANIMACIONES
-------------------------- */
+========================= */
 
-@keyframes aparecer {
-
-    from {
-        opacity: 0;
-        transform: scale(0.85);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-}
-
-
-@keyframes flotando {
-
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-}
-
-
-@keyframes girar360 {
+@keyframes rotate360 {
 
     from {
         transform: rotateY(0deg);
@@ -322,68 +375,50 @@ button:active {
     to {
         transform: rotateY(360deg);
     }
-
 }
 
+@keyframes floating {
 
-@keyframes temblar {
-
-    0% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(2px);
+    0%, 100% {
+        translate: 0 0;
     }
 
     50% {
-        transform: translateX(-2px);
+        translate: 0 -10px;
+    }
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.96);
     }
 
-    75% {
-        transform: translateX(2px);
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
-
-    100% {
-        transform: translateX(0);
-    }
-
 }
 
 
-/* -------------------------
+/* =========================
    CELULAR
-------------------------- */
+========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 
-    .tarjeta {
+    .card {
         padding: 35px 25px;
+        border-radius: 24px;
     }
 
-    h1 {
-        font-size: 25px;
+    .result-content h2 {
+        letter-spacing: -3px;
     }
 
-    .pregunta {
-        font-size: 22px;
+    .image-container {
+        width: 280px;
+        height: 280px;
     }
-
-    .imagen-container {
-        width: 270px;
-        height: 270px;
-    }
-
-    .resultado h2 {
-        font-size: 27px;
-    }
-
-    .youtube-player {
-        width: 150px;
-        height: 85px;
-
-        bottom: 10px;
-        right: 10px;
-    }
-
 }
