@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        radial-gradient(circle at top, #ff9acb 0%, transparent 35%),
+        linear-gradient(135deg, #18001f, #4b003f, #120019);
+
+    color: white;
+
+    overflow-x: hidden;
+}
+
+
+/* -------------------------
+   PANTALLAS
+------------------------- */
+
+.pantalla {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+}
+
+
+/* -------------------------
+   TARJETA PRINCIPAL
+------------------------- */
+
+.tarjeta {
+    width: 100%;
+    max-width: 450px;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+
+    animation: aparecer 0.8s ease;
+}
+
+
+.emoji {
+    font-size: 60px;
+    margin-bottom: 20px;
+
+    animation: flotando 2s ease-in-out infinite;
+}
+
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+
+.pregunta {
+    font-size: 26px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+
+    color: #ffb7df;
+}
+
+
+.subtexto {
+    color: #ddd;
+
+    margin-bottom: 25px;
+}
+
+
+/* -------------------------
+   INPUT
+------------------------- */
+
+input {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    margin-bottom: 15px;
+
+    background: rgba(255, 255, 255, 0.95);
+}
+
+
+input:focus {
+    box-shadow: 0 0 0 3px #ff55b5;
+}
+
+
+/* -------------------------
+   BOTONES
+------------------------- */
+
+button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    color: white;
+
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #ff2f9f,
+        #9c27ff
+    );
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 8px 25px rgba(255, 47, 159, 0.35);
+}
+
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(255, 47, 159, 0.55);
+}
+
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+/* -------------------------
+   RESULTADO
+------------------------- */
+
+.resultado {
+    text-align: center;
+}
+
+
+.resultado-contenido {
+    width: 100%;
+    max-width: 600px;
+
+    animation: aparecer 0.7s ease;
+}
+
+
+.resultado h2 {
+    font-size: 34px;
+
+    margin-bottom: 30px;
+
+    color: #ffb7df;
+}
+
+
+/* -------------------------
+   IMAGEN GIRATORIA
+------------------------- */
+
+.imagen-container {
+    width: 330px;
+    height: 330px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1000px;
+}
+
+
+.imagen-container img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 20px;
+
+    filter:
+        drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6));
+
+    animation: girar360 2.5s linear infinite;
+}
+
+
+/* -------------------------
+   TEXTO FINAL
+------------------------- */
+
+.texto-final {
+    font-size: 32px;
+    font-weight: bold;
+
+    margin-bottom: 25px;
+
+    animation: temblar 0.15s infinite;
+}
+
+
+/* -------------------------
+   YOUTUBE
+------------------------- */
+
+.youtube-player {
+    position: fixed;
+
+    bottom: 15px;
+    right: 15px;
+
+    width: 220px;
+    height: 125px;
+
+    z-index: 100;
+
+    opacity: 0.35;
+
+    transition: 0.3s;
+}
+
+
+.youtube-player:hover {
+    opacity: 1;
+}
+
+
+.youtube-player iframe {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 12px;
+}
+
+
+/* -------------------------
+   OCULTAR
+------------------------- */
+
+.oculto {
+    display: none;
+}
+
+
+/* -------------------------
+   ANIMACIONES
+------------------------- */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+
+@keyframes flotando {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+@keyframes girar360 {
+
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+
+}
+
+
+@keyframes temblar {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(2px);
+    }
+
+    50% {
+        transform: translateX(-2px);
+    }
+
+    75% {
+        transform: translateX(2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* -------------------------
+   CELULAR
+------------------------- */
+
+@media (max-width: 600px) {
+
+    .tarjeta {
+        padding: 35px 25px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .pregunta {
+        font-size: 22px;
+    }
+
+    .imagen-container {
+        width: 270px;
+        height: 270px;
+    }
+
+    .resultado h2 {
+        font-size: 27px;
+    }
+
+    .youtube-player {
+        width: 150px;
+        height: 85px;
+
+        bottom: 10px;
+        right: 10px;
+    }
+
+}
